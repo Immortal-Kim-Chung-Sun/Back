@@ -28,7 +28,7 @@ public class UserController {
 
     }
 
-    @RequestMapping(value = "/all/rank", method = RequestMethod.GET)
+    @GetMapping("/all/rank")
     public List<User> userRank() {
         return rankingService.findAll();
     }
