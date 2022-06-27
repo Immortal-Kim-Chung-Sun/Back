@@ -1,5 +1,6 @@
 package com.project.history.domain.domain.entity;
 
+import com.sun.istack.NotNull;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -17,6 +18,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idx;
 
+    @NotNull
     @Column(name = "user_name")
     private String name;
 

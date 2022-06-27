@@ -1,5 +1,6 @@
 package com.project.history.domain.domain.dto;
 
+import com.sun.istack.NotNull;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -9,7 +10,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class UserRequestDto {
 
+    @NotNull
     private String name;
+
     private Long point;
 
     @Builder

@@ -30,7 +30,7 @@ public class RankingServiceImpl implements RankingService{
 
         repo.save(saveUser);
 
-        log.info("Save Success!!");
+        log.info("Save Success!! ");
         log.info("User : " + saveUser.toString());
 
         new RankCheck(repo);
