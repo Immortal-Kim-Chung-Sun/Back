@@ -2,6 +2,7 @@ package com.project.history.domain.service;
 
 import com.project.history.domain.domain.dto.UserRequestDto;
 import com.project.history.domain.domain.entity.User;
+import com.project.history.domain.exception.UserAlreadyExistsException;
 import com.project.history.domain.repository.UserRepo;
 import com.project.history.global.check.RankCheck;
 import com.project.history.global.sort.PointComparator;
@@ -21,6 +22,10 @@ public class RankingServiceImpl implements RankingService{
 
     @Override
     public void save(UserRequestDto user) {
+
+        repo.findByName(user.getName()).ifPresent(m -> {
+            throw UserAlreadyExistsException.EXCEPTION;
+        });
 
         User saveUser = User.builder()
                 .rank(0)

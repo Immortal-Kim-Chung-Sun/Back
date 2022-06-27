@@ -18,7 +18,7 @@ public class RankCheck {
 
         for(int i = 0; i < rankList.size(); i++) {
             updateUser = User.builder()
-                    .rank(i)
+                    .rank(i+1)
                     .name(rankList.get(i).getName())
                     .point(rankList.get(i).getPoint())
                     .build();
