@@ -27,16 +27,19 @@ public class RankingServiceImpl implements RankingService{
             throw UserAlreadyExistsException.EXCEPTION;
         });
 
+        String userName = user.getName();
+
+        System.out.println(userName.substring(0, userName.length() - 1));
+
         User saveUser = User.builder()
                 .rank(0)
-                .name(user.getName())
+                .name(userName.substring(0, userName.length() - 1))
                 .point(user.getPoint())
                 .build();
 
         repo.save(saveUser);
 
         log.info("Save Success!! ");
-        log.info("User : " + saveUser.toString());
 
         new RankCheck(repo);
     }
